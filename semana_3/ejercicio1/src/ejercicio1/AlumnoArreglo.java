@@ -11,54 +11,45 @@ public class AlumnoArreglo {
         tam = capacidad;
         i = 0;
     }
-
-    // Métodos
-
-    // Verificar si el arreglo está vacío
+    
     private boolean estaVacio() {
-        return i == 0;  // Si el índice es 0, no hay elementos
+        return i == 0;
     }
 
-    // Verificar si el arreglo está lleno
     private boolean estaLleno() {
-        return i == tam;  // Si el índice es igual al tamaño del arreglo, está lleno
+        return i == tam;
     }
 
-    // Agregar un nuevo alumno
     public boolean agregar(Alumno alumno) {
         if (estaLleno()) {
             System.out.println("El arreglo está lleno. No se puede agregar un nuevo alumno.");
-            return false;  // No se pudo agregar
+            return false;
         }
         alumnos[i] = alumno;
-        i++;  // Incrementa el índice para la siguiente posición
+        i++;
         return true;
     }
 
-    // Buscar un alumno por su código
     public Alumno buscar(String codigo) {
         for (int j = 0; j < i; j++) {
             if (alumnos[j].getCodigo().equals(codigo)) {
-                return alumnos[j];  // Se encontró el alumno
+                return alumnos[j];
             }
         }
-        return null;  // No se encontró el alumno
+        return null;
     }
-
-    // Método de ordenación por burbuja (Bubble Sort) basado en un campo
+    
     public void ordenarBurbuja(int campo, String valor) {
         for (int j = 0; j < i - 1; j++) {
             for (int k = 0; k < i - j - 1; k++) {
                 boolean comparar = false;
 
-                // Dependiendo del campo, se realiza la comparación
-                if (campo == 1) {  // Comparar por código
+                if (campo == 1) {
                     comparar = alumnos[k].getCodigo().compareTo(alumnos[k + 1].getCodigo()) > 0;
-                } else if (campo == 2) {  // Comparar por nombre
+                } else if (campo == 2) {
                     comparar = alumnos[k].getNombre().compareTo(alumnos[k + 1].getNombre()) > 0;
                 }
 
-                // Si el valor es "ascendente", intercambiamos según el criterio
                 if ((valor.equalsIgnoreCase("ascendente") && comparar) ||
                     (valor.equalsIgnoreCase("descendente") && !comparar)) {
                     Alumno temp = alumnos[k];
