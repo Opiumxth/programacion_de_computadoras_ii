@@ -40,5 +40,11 @@ public class Profesor {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Profesor{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + '}';
+    }
+    
     
 }
