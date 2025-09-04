@@ -62,5 +62,10 @@ public class Alumno {
     public void setDni(String dni) {
         this.dni = dni;
     }
-       
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", promedio=" + promedio + '}';
+    }
+    
 }
